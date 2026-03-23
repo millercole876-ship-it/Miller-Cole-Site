@@ -193,6 +193,57 @@
     display: inline-block;
   }
 
+  /* ═══ FEATURED IN ═══ */
+  .featured-in {
+    padding: 2.2rem 0;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+  }
+
+  .featured-label {
+    font-size: 0.68rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--warm-grey);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .featured-logos {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+  }
+
+  .featured-logo-link {
+    text-decoration: none;
+    color: var(--warm-grey);
+    transition: color 0.25s;
+  }
+
+  .featured-logo-link:hover {
+    color: var(--ink);
+  }
+
+  .featured-logo {
+    height: 22px;
+    width: auto;
+    color: var(--warm-grey);
+    transition: color 0.25s;
+  }
+
+  .bi-logo {
+    color: var(--warm-grey);
+  }
+
+  .logo-divider {
+    width: 1px;
+    height: 20px;
+    background: var(--rule);
+  }
+
   /* ═══ SECTION LABELS ═══ */
   .section-heading {
     padding: 3rem 0 1.5rem;
@@ -333,6 +384,30 @@
     font-size: 0.88rem;
     color: var(--mid-grey);
     line-height: 1.65;
+  }
+
+  /* ═══ PRICING CTA ═══ */
+  .pricing-cta {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .pricing-btn {
+    display: inline-block;
+    padding: 0.9rem 2.4rem;
+    background: var(--accent);
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.25s;
+  }
+
+  .pricing-btn:hover {
+    background: var(--accent-light);
   }
 
   /* ═══ NEWSLETTER CTA ═══ */
@@ -632,8 +707,8 @@
       <p class="tagline">Writer · Analyst · Bitcoin</p>
       <nav class="main-nav">
         <a href="#about">About</a>
-        <a href="#writing">Writing</a>
         <a href="#services">Services</a>
+        <a href="#writing">Writing</a>
         <a href="#newsletter">Newsletter</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -645,25 +720,77 @@
     <section class="hero" id="about">
       <div class="hero-layout">
         <div class="hero-intro">
-          Writing about <em>Bitcoin</em>, monetary policy, and the political economy of money&thinsp;—&thinsp;from a British perspective.
+          Writing about <em>Bitcoin</em>, monetary policy, and the political economy of money.
         </div>
         <div class="hero-bio">
-          <p>I cover the intersection of sound money, UK economic policy, and Bitcoin adoption. Financial analyst at Musqet, a Bitcoin payments startup building merchant infrastructure for the UK.</p>
-          <p>Published in Business Insider and CoinDesk. Currently reading Politics with Economics at the University of Bath.</p>
+          <p>I cover the intersection of sound money, economic policy, and Bitcoin adoption. Financial analyst at Musqet, a Bitcoin payments startup building merchant infrastructure.</p>
+          <p>Published in Business Insider and CoinDesk.</p>
           <div class="hero-credentials">
             <span class="credential"><span class="marker"></span> Business Insider</span>
             <span class="credential"><span class="marker"></span> CoinDesk</span>
             <span class="credential"><span class="marker"></span> Musqet</span>
-            <span class="credential"><span class="marker"></span> University of Bath</span>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ═══ FEATURED IN ═══ -->
+    <section class="featured-in">
+      <span class="featured-label">Featured in</span>
+      <div class="featured-logos">
+        <a href="https://www.coindesk.com/opinion/2025/10/17/your-company-s-balance-sheet-is-doomed-without-bitcoin" target="_blank" class="featured-logo-link">
+          <svg class="featured-logo coindesk-logo" viewBox="0 0 200 28" xmlns="http://www.w3.org/2000/svg">
+            <text x="0" y="22" font-family="'Cormorant Garamond', Georgia, serif" font-size="24" font-weight="700" letter-spacing="-0.5" fill="currentColor">CoinDesk</text>
+          </svg>
+        </a>
+        <span class="logo-divider"></span>
+        <span class="featured-logo bi-logo">
+          <svg class="featured-logo" viewBox="0 0 260 28" xmlns="http://www.w3.org/2000/svg">
+            <text x="0" y="22" font-family="'Cormorant Garamond', Georgia, serif" font-size="24" font-weight="700" letter-spacing="-0.5" fill="currentColor">Business Insider</text>
+          </svg>
+        </span>
+      </div>
+    </section>
+
+    <!-- ═══ SERVICES ═══ -->
+    <div class="section-heading" id="services">
+      <h2>
+        <span class="section-number">01</span>
+        Writing Services
+      </h2>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-number">01</div>
+        <h3>Ghostwriting</h3>
+        <p>Blog posts, thought leadership, and newsletter content for Bitcoin and fintech companies. Your voice, my pen. Published-quality writing that builds credibility with customers and investors.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">02</div>
+        <h3>Long-form Articles</h3>
+        <p>Deep research pieces, white papers, and reports on Bitcoin payments, monetary policy, and fintech. Authoritative content with real substance for companies that need to stand out.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">03</div>
+        <h3>Content Strategy</h3>
+        <p>Editorial calendars, content audits, and positioning advice for Bitcoin startups. I'll identify the gaps in your content and build a plan that positions your company as a thought leader.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">04</div>
+        <h3>Investor Materials</h3>
+        <p>Deck narratives, investor updates, and fundraising copy for Bitcoin startups. I've worked inside the VC outreach process and understand what investors are looking for.</p>
+      </div>
+    </div>
+
+    <div class="pricing-cta">
+      <a href="#contact" class="pricing-btn">Contact for Pricing →</a>
+    </div>
+
     <!-- ═══ WRITING ═══ -->
     <div class="section-heading" id="writing">
       <h2>
-        <span class="section-number">01</span>
+        <span class="section-number">02</span>
         Selected Writing
       </h2>
     </div>
@@ -674,6 +801,15 @@
         <span class="writing-meta">
           <span class="writing-pub">Newsletter</span>
           <span class="writing-date">2026</span>
+        </span>
+        <span class="writing-arrow">→</span>
+      </a>
+
+      <a class="writing-item" href="https://www.coindesk.com/opinion/2025/10/17/your-company-s-balance-sheet-is-doomed-without-bitcoin" target="_blank">
+        <span class="writing-title">Your Company's Balance Sheet Is Doomed Without Bitcoin</span>
+        <span class="writing-meta">
+          <span class="writing-pub">CoinDesk</span>
+          <span class="writing-date">2025</span>
         </span>
         <span class="writing-arrow">→</span>
       </a>
@@ -697,15 +833,6 @@
       </a>
 
       <a class="writing-item" href="#">
-        <span class="writing-title">The Case for Merchant Bitcoin Adoption in Britain</span>
-        <span class="writing-meta">
-          <span class="writing-pub">CoinDesk</span>
-          <span class="writing-date">2025</span>
-        </span>
-        <span class="writing-arrow">→</span>
-      </a>
-
-      <a class="writing-item" href="#">
         <span class="writing-title">Sterling's Quiet Collapse: What 50 Years of Data Tell Us</span>
         <span class="writing-meta">
           <span class="writing-pub">Newsletter</span>
@@ -723,37 +850,6 @@
         <span class="writing-arrow">→</span>
       </a>
     </ul>
-
-    <!-- ═══ SERVICES ═══ -->
-    <div class="section-heading" id="services">
-      <h2>
-        <span class="section-number">02</span>
-        Writing Services
-      </h2>
-    </div>
-
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-number">01</div>
-        <h3>Ghostwriting</h3>
-        <p>Blog posts, thought leadership, and newsletter content for Bitcoin and fintech companies. Your voice, my pen. Published-quality writing that builds credibility with customers and investors.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-number">02</div>
-        <h3>Long-form Articles</h3>
-        <p>Deep research pieces, white papers, and reports on Bitcoin payments, monetary policy, and UK fintech. Authoritative content with real substance for companies that need to stand out.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-number">03</div>
-        <h3>Content Strategy</h3>
-        <p>Editorial calendars, content audits, and positioning advice for Bitcoin startups. I'll identify the gaps in your content and build a plan that positions your company as a thought leader.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-number">04</div>
-        <h3>Investor Materials</h3>
-        <p>Deck narratives, investor updates, and fundraising copy for Bitcoin startups. I've worked inside the VC outreach process and understand what investors are looking for.</p>
-      </div>
-    </div>
   </div>
 
   <!-- ═══ NEWSLETTER CTA ═══ -->
