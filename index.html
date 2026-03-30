@@ -3,25 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Miller Cole — Bitcoin &amp; Political Economy</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Miller Cole — Writer · Analyst · Bitcoin</title>
+<meta name="description" content="Writing about Bitcoin, monetary policy, and the political economy of money from a British perspective. Financial analyst at Musqet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 <style>
+  /* ═══ VARIABLES ═══ */
   :root {
-    --ink: #111111;
-    --paper: #faf8f4;
-    --cream: #f0ece3;
-    --warm-grey: #8a8275;
-    --mid-grey: #5c5649;
-    --accent: #1a3a2a;
-    --accent-light: #2d5e45;
-    --gold: #b8953e;
-    --gold-muted: #c9a95c;
-    --rule: #d6d0c4;
-    --card-bg: #f5f1ea;
-    --selection: #e8dfc9;
+    --ink: #1a1a1a;
+    --paper: #faf9f6;
+    --green: #1b3a2d;
+    --green-light: #2a5a45;
+    --gold: #b8975a;
+    --gold-light: #d4b87a;
+    --grey-mid: #6b6b6b;
+    --grey-light: #a3a3a3;
+    --rule: #e0ddd8;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', -apple-system, sans-serif;
   }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  /* ═══ RESET & BASE ═══ */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   html {
     font-size: 17px;
@@ -29,33 +33,29 @@
   }
 
   body {
-    font-family: 'DM Sans', 'Helvetica Neue', sans-serif;
+    font-family: var(--sans);
     background: var(--paper);
     color: var(--ink);
-    line-height: 1.7;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
 
-  ::selection {
-    background: var(--selection);
-    color: var(--ink);
-  }
-
-  /* ═══ UTILITY ═══ */
   .container {
-    max-width: 860px;
+    max-width: 960px;
     margin: 0 auto;
     padding: 0 2rem;
   }
+
+  a { color: inherit; }
 
   /* ═══ TOP BAR ═══ */
   .top-bar {
     border-bottom: 1px solid var(--rule);
     padding: 0.6rem 0;
     font-size: 0.72rem;
-    letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--warm-grey);
+    letter-spacing: 1.5px;
+    color: var(--grey-mid);
   }
 
   .top-bar .container {
@@ -64,217 +64,243 @@
     align-items: center;
   }
 
-  .top-bar a {
-    color: var(--warm-grey);
-    text-decoration: none;
-    transition: color 0.25s;
-  }
-
-  .top-bar a:hover { color: var(--ink); }
-
   .top-bar-links {
     display: flex;
-    gap: 1.4rem;
+    gap: 1.2rem;
   }
+
+  .top-bar-links a {
+    text-decoration: none;
+    color: var(--grey-mid);
+    transition: color 0.2s;
+  }
+
+  .top-bar-links a:hover { color: var(--ink); }
 
   /* ═══ HEADER ═══ */
   header {
-    padding: 2.5rem 0 2rem;
+    padding: 3.5rem 0 2rem;
     text-align: center;
-    border-bottom: 3px double var(--rule);
+    border-bottom: 2px solid var(--ink);
   }
 
   header h1 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--serif);
     font-size: 3.4rem;
     font-weight: 600;
-    letter-spacing: -1px;
-    color: var(--ink);
+    letter-spacing: -0.5px;
     line-height: 1.1;
   }
 
-  header .tagline {
+  .tagline {
+    font-family: var(--sans);
     font-size: 0.82rem;
-    letter-spacing: 2.5px;
     text-transform: uppercase;
-    color: var(--warm-grey);
+    letter-spacing: 3px;
+    color: var(--grey-mid);
     margin-top: 0.6rem;
-    font-weight: 400;
   }
 
   nav.main-nav {
-    margin-top: 1.6rem;
+    margin-top: 1.8rem;
     display: flex;
     justify-content: center;
-    gap: 2.4rem;
+    gap: 2rem;
   }
 
   nav.main-nav a {
     font-size: 0.78rem;
-    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 1.4px;
-    color: var(--mid-grey);
+    letter-spacing: 1.5px;
     text-decoration: none;
-    position: relative;
-    transition: color 0.25s;
-  }
-
-  nav.main-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: var(--accent);
-    transition: width 0.3s ease;
+    color: var(--grey-mid);
+    transition: color 0.2s;
   }
 
   nav.main-nav a:hover { color: var(--ink); }
-  nav.main-nav a:hover::after { width: 100%; }
 
-  /* ═══ HERO ═══ */
+  /* ═══ HERO / ABOUT ═══ */
   .hero {
-    padding: 4rem 0 3.5rem;
+    padding: 4rem 0 3rem;
     border-bottom: 1px solid var(--rule);
   }
 
   .hero-layout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3.5rem;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
     align-items: start;
   }
 
   .hero-intro {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.7rem;
-    font-weight: 500;
+    font-family: var(--serif);
+    font-size: 1.65rem;
+    font-weight: 400;
     line-height: 1.45;
     color: var(--ink);
   }
 
   .hero-intro em {
+    color: var(--green);
     font-style: italic;
-    color: var(--accent);
   }
 
   .hero-bio {
-    font-size: 0.95rem;
-    color: var(--mid-grey);
-    line-height: 1.75;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--grey-mid);
   }
 
-  .hero-bio p + p { margin-top: 1rem; }
+  .hero-bio p + p { margin-top: 0.8rem; }
 
   .hero-credentials {
-    margin-top: 1.6rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 1.2rem;
+    gap: 2.5rem;
   }
 
   .credential {
     font-size: 0.72rem;
-    letter-spacing: 1.2px;
     text-transform: uppercase;
-    color: var(--warm-grey);
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
+    letter-spacing: 1.2px;
+    color: var(--grey-light);
   }
 
-  .credential .marker {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--gold);
-    display: inline-block;
+  .credential strong {
+    display: block;
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0;
+    text-transform: none;
+    margin-bottom: 0.15rem;
   }
 
   /* ═══ FEATURED IN ═══ */
-  .featured-in {
-    padding: 2.2rem 0;
+  .featured {
+    padding: 2rem 0;
     border-bottom: 1px solid var(--rule);
-    display: flex;
-    align-items: center;
-    gap: 1.8rem;
+    text-align: center;
   }
 
   .featured-label {
     font-size: 0.68rem;
-    letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--warm-grey);
-    font-weight: 500;
-    white-space: nowrap;
+    letter-spacing: 2px;
+    color: var(--grey-light);
+    margin-bottom: 1rem;
   }
 
   .featured-logos {
     display: flex;
+    justify-content: center;
+    gap: 2.5rem;
     align-items: center;
-    gap: 1.8rem;
   }
 
-  .featured-logo-link {
-    text-decoration: none;
-    color: var(--warm-grey);
-    transition: color 0.25s;
+  .featured-logos span {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--grey-mid);
+    letter-spacing: 0.3px;
   }
 
-  .featured-logo-link:hover {
-    color: var(--ink);
+  .featured-logos span::after {
+    content: '';
+    display: none;
   }
 
-  .featured-logo {
-    height: 22px;
-    width: auto;
-    color: var(--warm-grey);
-    transition: color 0.25s;
-  }
-
-  .bi-logo {
-    color: var(--warm-grey);
-  }
-
-  .logo-divider {
-    width: 1px;
-    height: 20px;
-    background: var(--rule);
-  }
-
-  /* ═══ SECTION LABELS ═══ */
+  /* ═══ SECTION HEADINGS ═══ */
   .section-heading {
     padding: 3rem 0 1.5rem;
   }
 
   .section-heading h2 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.6rem;
+    font-family: var(--serif);
+    font-size: 2rem;
     font-weight: 600;
-    color: var(--ink);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
   }
 
-  .section-heading h2::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--rule);
-  }
-
-  .section-heading .section-number {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 1.5px;
+  .section-number {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     color: var(--gold);
-    font-weight: 500;
+    display: block;
+    margin-bottom: 0.3rem;
   }
 
-  /* ═══ WRITING / PORTFOLIO ═══ */
+  /* ═══ SERVICES ═══ */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--rule);
+  }
+
+  .service-card {
+    padding: 2rem 2rem 2rem 0;
+    border-bottom: 1px solid var(--rule);
+    opacity: 0;
+    animation: fadeUp 0.5s ease-out both;
+  }
+
+  .service-card:nth-child(even) {
+    padding-left: 2rem;
+    border-left: 1px solid var(--rule);
+  }
+
+  .service-card:nth-child(odd) {
+    border-right: 1px solid var(--rule);
+  }
+
+  .service-number {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    letter-spacing: 2px;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+
+  .service-card h3 {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-card p {
+    font-size: 0.88rem;
+    color: var(--grey-mid);
+    line-height: 1.6;
+  }
+
+  .pricing-cta {
+    text-align: center;
+    padding: 2rem 0 3rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .pricing-btn {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: var(--paper);
+    background: var(--green);
+    padding: 0.9rem 2.5rem;
+    transition: background 0.2s;
+  }
+
+  .pricing-btn:hover { background: var(--green-light); }
+
+  /* ═══ WRITING LIST ═══ */
   .writing-list {
     list-style: none;
     border-top: 1px solid var(--rule);
@@ -282,346 +308,213 @@
 
   .writing-item {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: baseline;
-    padding: 1.1rem 0;
+    padding: 1.2rem 0;
     border-bottom: 1px solid var(--rule);
     text-decoration: none;
-    color: var(--ink);
-    transition: background 0.2s;
-    cursor: pointer;
+    transition: padding-left 0.25s ease;
+    opacity: 0;
+    animation: fadeUp 0.5s ease-out both;
   }
 
+  .writing-item:nth-child(1) { animation-delay: 0.1s; }
+  .writing-item:nth-child(2) { animation-delay: 0.18s; }
+  .writing-item:nth-child(3) { animation-delay: 0.26s; }
+  .writing-item:nth-child(4) { animation-delay: 0.34s; }
+  .writing-item:nth-child(5) { animation-delay: 0.42s; }
+
   .writing-item:hover {
-    background: var(--cream);
     padding-left: 0.8rem;
-    padding-right: 0.8rem;
-    margin-left: -0.8rem;
-    margin-right: -0.8rem;
   }
 
   .writing-title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--serif);
     font-size: 1.15rem;
-    font-weight: 600;
-    line-height: 1.35;
+    font-weight: 500;
     flex: 1;
-    padding-right: 1.5rem;
   }
 
   .writing-meta {
     display: flex;
-    align-items: baseline;
-    gap: 1rem;
+    gap: 1.2rem;
+    align-items: center;
+    margin-left: 1.5rem;
     flex-shrink: 0;
   }
 
   .writing-pub {
     font-size: 0.72rem;
-    letter-spacing: 1px;
     text-transform: uppercase;
+    letter-spacing: 1.2px;
     color: var(--gold);
-    font-weight: 500;
   }
 
   .writing-date {
-    font-size: 0.78rem;
-    color: var(--warm-grey);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--grey-light);
   }
 
   .writing-arrow {
-    margin-left: 0.8rem;
-    color: var(--warm-grey);
+    margin-left: 1rem;
+    color: var(--grey-light);
     font-size: 1.1rem;
-    transition: transform 0.2s, color 0.2s;
+    transition: color 0.2s, transform 0.2s;
   }
 
   .writing-item:hover .writing-arrow {
+    color: var(--green);
     transform: translateX(3px);
-    color: var(--accent);
   }
 
-  /* ═══ SERVICES ═══ */
-  .services-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    border: 1px solid var(--rule);
-    margin-bottom: 3rem;
-  }
-
-  .service-card {
-    padding: 2rem 2.2rem;
-    border-bottom: 1px solid var(--rule);
-    position: relative;
-  }
-
-  .service-card:nth-child(odd) {
-    border-right: 1px solid var(--rule);
-  }
-
-  .service-card:nth-last-child(-n+2) {
-    border-bottom: none;
-  }
-
-  .service-number {
-    font-size: 0.68rem;
-    letter-spacing: 2px;
-    color: var(--gold);
-    font-weight: 600;
-    margin-bottom: 0.6rem;
-  }
-
-  .service-card h3 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 0.6rem;
-  }
-
-  .service-card p {
-    font-size: 0.88rem;
-    color: var(--mid-grey);
-    line-height: 1.65;
-  }
-
-  /* ═══ PRICING CTA ═══ */
-  .pricing-cta {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-
-  .pricing-btn {
-    display: inline-block;
-    padding: 0.9rem 2.4rem;
-    background: var(--accent);
-    color: #fff;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: background 0.25s;
-  }
-
-  .pricing-btn:hover {
-    background: var(--accent-light);
-  }
-
-  /* ═══ NEWSLETTER CTA ═══ */
-  .newsletter-cta {
-    background: var(--accent);
-    color: #e8e4db;
-    padding: 3.5rem 0;
-    margin: 0 -2rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-
-  @media (min-width: 681px) {
-    .newsletter-cta {
-      margin: 0 calc(-50vw + 430px);
-      padding-left: calc(50vw - 430px + 2rem);
-      padding-right: calc(50vw - 430px + 2rem);
-    }
+  /* ═══ NEWSLETTER ═══ */
+  .newsletter {
+    background: var(--green);
+    color: var(--paper);
+    padding: 4rem 0;
+    margin-top: 3rem;
   }
 
   .newsletter-inner {
-    max-width: 860px;
+    max-width: 960px;
     margin: 0 auto;
+    padding: 0 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
     align-items: center;
   }
 
-  .newsletter-cta h2 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.8rem;
+  .newsletter h2 {
+    font-family: var(--serif);
+    font-size: 2rem;
     font-weight: 600;
-    color: #fff;
-    line-height: 1.3;
+    margin-bottom: 0.5rem;
   }
 
-  .newsletter-cta h2 em {
-    font-style: italic;
-    color: var(--gold-muted);
-  }
-
-  .newsletter-cta .nl-desc {
-    margin-top: 0.8rem;
-    font-size: 0.9rem;
-    line-height: 1.65;
-    color: #c5c0b5;
+  .newsletter p {
+    font-size: 0.92rem;
+    opacity: 0.8;
+    line-height: 1.6;
   }
 
   .nl-form {
     display: flex;
-    gap: 0;
   }
 
   .nl-form input[type="email"] {
     flex: 1;
-    padding: 0.85rem 1rem;
+    padding: 0.8rem 1rem;
     border: 1px solid rgba(255,255,255,0.15);
     border-right: none;
     background: rgba(255,255,255,0.07);
-    color: #fff;
-    font-family: 'DM Sans', sans-serif;
+    color: var(--paper);
+    font-family: var(--sans);
     font-size: 0.88rem;
     outline: none;
-    transition: border-color 0.3s;
   }
 
-  .nl-form input[type="email"]::placeholder {
-    color: rgba(255,255,255,0.35);
-  }
-
-  .nl-form input[type="email"]:focus {
-    border-color: var(--gold-muted);
-  }
+  .nl-form input::placeholder { color: rgba(255,255,255,0.4); }
 
   .nl-form button {
-    padding: 0.85rem 1.6rem;
+    padding: 0.8rem 1.8rem;
     background: var(--gold);
-    color: var(--ink);
+    color: var(--green);
     border: none;
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--sans);
     font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 1.2px;
+    font-weight: 700;
     text-transform: uppercase;
+    letter-spacing: 1.5px;
     cursor: pointer;
-    transition: background 0.25s;
+    transition: background 0.2s;
   }
 
-  .nl-form button:hover {
-    background: var(--gold-muted);
-  }
+  .nl-form button:hover { background: var(--gold-light); }
 
   .nl-note {
-    margin-top: 0.6rem;
     font-size: 0.72rem;
-    color: rgba(255,255,255,0.3);
-    letter-spacing: 0.5px;
+    opacity: 0.5;
+    margin-top: 0.6rem;
   }
 
-  /* ═══ FOOTER / CONTACT ═══ */
+  /* ═══ FOOTER ═══ */
   footer {
-    padding: 3.5rem 0 3rem;
-    border-top: 3px double var(--rule);
+    padding: 3rem 0 2rem;
+    border-top: 1px solid var(--rule);
   }
 
   .footer-grid {
     display: grid;
-    grid-template-columns: 1.4fr 1fr;
+    grid-template-columns: 1.5fr 1fr;
     gap: 3rem;
   }
 
   .footer-heading {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.4rem;
+    font-family: var(--serif);
+    font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 0.8rem;
   }
 
+  .email-link {
+    display: inline-block;
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    color: var(--green);
+    text-decoration: none;
+    border-bottom: 1px solid var(--green);
+    margin-bottom: 0.8rem;
+    transition: opacity 0.2s;
+  }
+
+  .email-link:hover { opacity: 0.7; }
+
   footer p {
     font-size: 0.88rem;
-    color: var(--mid-grey);
-    line-height: 1.65;
-  }
-
-  footer a.email-link {
-    display: inline-block;
-    font-size: 0.95rem;
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 500;
-    margin-bottom: 0.8rem;
-    border-bottom: 1px solid var(--accent);
-    transition: color 0.25s, border-color 0.25s;
-  }
-
-  footer a.email-link:hover {
-    color: var(--gold);
-    border-color: var(--gold);
+    color: var(--grey-mid);
+    line-height: 1.6;
   }
 
   .footer-links {
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
-    align-items: flex-start;
+    gap: 0.8rem;
+    justify-content: center;
   }
 
   .footer-link {
     font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 1.2px;
     text-transform: uppercase;
-    color: var(--warm-grey);
+    letter-spacing: 1px;
+    color: var(--grey-mid);
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: color 0.25s;
+    transition: color 0.2s;
   }
 
   .footer-link:hover { color: var(--ink); }
 
-  .footer-link .arrow {
-    font-size: 0.85rem;
-    transition: transform 0.2s;
-  }
-
-  .footer-link:hover .arrow {
-    transform: translateX(3px);
-  }
-
   .footer-copy {
-    margin-top: 3rem;
+    margin-top: 2.5rem;
     padding-top: 1.5rem;
     border-top: 1px solid var(--rule);
     font-size: 0.72rem;
-    color: var(--warm-grey);
-    letter-spacing: 0.5px;
+    color: var(--grey-light);
+    text-align: center;
   }
 
   /* ═══ ANIMATIONS ═══ */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(18px); }
+    from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
+  .hero-intro { animation: fadeUp 0.7s ease-out; }
+  .hero-bio { animation: fadeUp 0.7s ease-out 0.1s both; }
+  .hero-credentials { animation: fadeUp 0.7s ease-out 0.2s both; }
 
-  header h1 { animation: fadeUp 0.8s ease-out; }
-  header .tagline { animation: fadeUp 0.7s ease-out 0.1s both; }
-  nav.main-nav { animation: fadeIn 0.8s ease-out 0.25s both; }
-
-  .hero-intro { animation: fadeUp 0.7s ease-out 0.15s both; }
-  .hero-bio { animation: fadeUp 0.7s ease-out 0.25s both; }
-
-  .writing-item {
-    opacity: 0;
-    animation: fadeUp 0.45s ease-out both;
-  }
-  .writing-item:nth-child(1) { animation-delay: 0.3s; }
-  .writing-item:nth-child(2) { animation-delay: 0.38s; }
-  .writing-item:nth-child(3) { animation-delay: 0.46s; }
-  .writing-item:nth-child(4) { animation-delay: 0.54s; }
-  .writing-item:nth-child(5) { animation-delay: 0.62s; }
-  .writing-item:nth-child(6) { animation-delay: 0.70s; }
-
-  .service-card {
-    opacity: 0;
-    animation: fadeUp 0.45s ease-out both;
-  }
   .service-card:nth-child(1) { animation-delay: 0.2s; }
   .service-card:nth-child(2) { animation-delay: 0.3s; }
   .service-card:nth-child(3) { animation-delay: 0.4s; }
@@ -683,6 +576,11 @@
       gap: 0.3rem;
       text-align: center;
     }
+
+    .hero-credentials {
+      flex-direction: column;
+      gap: 1.2rem;
+    }
   }
 </style>
 </head>
@@ -694,8 +592,8 @@
       <span>Bitcoin · Political Economy · UK Policy</span>
       <div class="top-bar-links">
         <a href="https://x.com/medc3005" target="_blank">𝕏</a>
-        <a href="https://www.linkedin.com/in/millercole30/" target="_blank">LinkedIn</a>
-        <a href="https://capitalconsensus.beehiiv.com/" target="_blank">Newsletter</a>
+        <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+        <a href="https://capitalconsensus.beehiiv.com" target="_blank">Beehiiv</a>
       </div>
     </div>
   </div>
@@ -707,8 +605,8 @@
       <p class="tagline">Writer · Analyst · Bitcoin</p>
       <nav class="main-nav">
         <a href="#about">About</a>
-        <a href="#services">Services</a>
         <a href="#writing">Writing</a>
+        <a href="#services">Services</a>
         <a href="#newsletter">Newsletter</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -720,43 +618,43 @@
     <section class="hero" id="about">
       <div class="hero-layout">
         <div class="hero-intro">
-          Writing about <em>Bitcoin</em>, monetary policy, and the political economy of money.
+          Writing about <em>Bitcoin</em>, monetary policy, and the political economy of money&thinsp;—&thinsp;from a British perspective.
         </div>
         <div class="hero-bio">
-          <p>I cover the intersection of sound money, economic policy, and Bitcoin adoption. Financial analyst at Musqet, a Bitcoin payments startup building merchant infrastructure.</p>
+          <p>I cover the intersection of sound money, UK economic policy, and Bitcoin adoption. Financial analyst at Musqet, a Bitcoin payments startup building merchant infrastructure for the UK.</p>
           <p>Published in Business Insider and CoinDesk.</p>
-          <div class="hero-credentials">
-            <span class="credential"><span class="marker"></span> Business Insider</span>
-            <span class="credential"><span class="marker"></span> CoinDesk</span>
-            <span class="credential"><span class="marker"></span> Musqet</span>
-          </div>
+        </div>
+      </div>
+      <div class="hero-credentials">
+        <div class="credential">
+          <strong>Musqet</strong>
+          Financial Analyst
+        </div>
+        <div class="credential">
+          <strong>Business Insider</strong>
+          Published Writer
+        </div>
+        <div class="credential">
+          <strong>CoinDesk</strong>
+          Published Writer
         </div>
       </div>
     </section>
 
     <!-- ═══ FEATURED IN ═══ -->
-    <section class="featured-in">
-      <span class="featured-label">Featured in</span>
+    <div class="featured">
+      <div class="featured-label">Featured In</div>
       <div class="featured-logos">
-        <a href="https://www.coindesk.com/opinion/2025/10/17/your-company-s-balance-sheet-is-doomed-without-bitcoin" target="_blank" class="featured-logo-link">
-          <svg class="featured-logo coindesk-logo" viewBox="0 0 200 28" xmlns="http://www.w3.org/2000/svg">
-            <text x="0" y="22" font-family="'Cormorant Garamond', Georgia, serif" font-size="24" font-weight="700" letter-spacing="-0.5" fill="currentColor">CoinDesk</text>
-          </svg>
-        </a>
-        <span class="logo-divider"></span>
-        <span class="featured-logo bi-logo">
-          <svg class="featured-logo" viewBox="0 0 260 28" xmlns="http://www.w3.org/2000/svg">
-            <text x="0" y="22" font-family="'Cormorant Garamond', Georgia, serif" font-size="24" font-weight="700" letter-spacing="-0.5" fill="currentColor">Business Insider</text>
-          </svg>
-        </span>
+        <span>Business Insider</span>
+        <span>CoinDesk</span>
       </div>
-    </section>
+    </div>
 
     <!-- ═══ SERVICES ═══ -->
     <div class="section-heading" id="services">
       <h2>
         <span class="section-number">01</span>
-        Writing Services
+        Services
       </h2>
     </div>
 
@@ -764,7 +662,7 @@
       <div class="service-card">
         <div class="service-number">01</div>
         <h3>Ghostwriting</h3>
-        <p>Blog posts, thought leadership, and newsletter content for Bitcoin and fintech companies. Your voice, my pen. Published-quality writing that builds credibility with customers and investors.</p>
+        <p>Blog posts, thought leadership, and opinion pieces for Bitcoin companies and fintech founders. Your voice, my pen. Published-quality writing that builds credibility with customers and investors.</p>
       </div>
       <div class="service-card">
         <div class="service-number">02</div>
@@ -796,6 +694,15 @@
     </div>
 
     <ul class="writing-list">
+      <a class="writing-item" href="https://capitalconsensus.beehiiv.com/p/the-rial-is-dead-bitcoin-is-the-exit" target="_blank">
+        <span class="writing-title">The Rial Is Dead. Bitcoin Is the Exit.</span>
+        <span class="writing-meta">
+          <span class="writing-pub">Newsletter</span>
+          <span class="writing-date">2026</span>
+        </span>
+        <span class="writing-arrow">→</span>
+      </a>
+
       <a class="writing-item" href="https://capitalconsensus.beehiiv.com/p/the-quiet-monetary-migration-how-bitcoin-became-a-lifeline-across-africa" target="_blank">
         <span class="writing-title">The Quiet Monetary Migration: How Bitcoin Became a Lifeline Across Africa</span>
         <span class="writing-meta">
@@ -825,18 +732,17 @@
     </ul>
   </div>
 
-  <!-- ═══ NEWSLETTER CTA ═══ -->
-  <section class="newsletter-cta" id="newsletter">
+  <!-- ═══ NEWSLETTER ═══ -->
+  <section class="newsletter" id="newsletter">
     <div class="newsletter-inner">
       <div>
-        <h2>The <em>Newsletter</em></h2>
-        <p class="nl-desc">Bitcoin, UK monetary policy, and political economy — delivered fortnightly. Free, substantive, no fluff.</p>
+        <h2>Capital &amp; Consensus</h2>
+        <p>A newsletter on Bitcoin, monetary policy, and British political economy. Free, substantive, no fluff.</p>
       </div>
       <div>
         <div class="nl-form">
-          <a href="https://capitalconsensus.beehiiv.com/subscribe" target="_blank" style="text-decoration:none;">
-            <button type="button">Subscribe on Beehiiv →</button>
-          </a>
+          <input type="email" placeholder="your@email.com">
+          <button>Subscribe</button>
         </div>
         <p class="nl-note">Free. Unsubscribe anytime. No spam.</p>
       </div>
@@ -849,13 +755,13 @@
       <div class="footer-grid">
         <div>
           <h3 class="footer-heading">Get in touch</h3>
-          <a class="email-link" href="mailto:miller.cole876@gmail.com">miller.cole876@gmail.com</a>
+          <a class="email-link" href="mailto:miller@musqet.tech">miller@musqet.tech</a>
           <p>Available for ghostwriting, long-form commissions, and content partnerships. Based in the United Kingdom.</p>
         </div>
         <div class="footer-links">
           <a class="footer-link" href="https://x.com/medc3005" target="_blank">𝕏  Twitter <span class="arrow">→</span></a>
-          <a class="footer-link" href="https://www.linkedin.com/in/millercole30/" target="_blank">LinkedIn <span class="arrow">→</span></a>
-          <a class="footer-link" href="https://capitalconsensus.beehiiv.com/" target="_blank">Newsletter <span class="arrow">→</span></a>
+          <a class="footer-link" href="https://linkedin.com/" target="_blank">LinkedIn <span class="arrow">→</span></a>
+          <a class="footer-link" href="https://capitalconsensus.beehiiv.com" target="_blank">Newsletter <span class="arrow">→</span></a>
         </div>
       </div>
       <p class="footer-copy">&copy; 2026 Miller Cole. All rights reserved.</p>
