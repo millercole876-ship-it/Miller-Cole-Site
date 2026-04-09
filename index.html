@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miller Cole &mdash; Writer &middot; Analyst &middot; Bitcoin</title>
+<meta name="description" content="Writing about Bitcoin, corporate treasury strategy, and the companies building on a Bitcoin standard. Contributing writer at BitcoinTreasuries.NET.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* ═══ VARIABLES ═══ */
+  :root {
+    --ink: #1a1a1a;
+    --paper: #faf9f6;
+    --green: #1b3a2d;
+    --green-light: #2a5a45;
+    --gold: #b8975a;
+    --gold-light: #d4b87a;
+    --grey-mid: #6b6b6b;
+    --grey-light: #a3a3a3;
+    --rule: #e0ddd8;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', -apple-system, sans-serif;
+  }
+
+  /* ═══ RESET & BASE ═══ */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    font-size: 17px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  a { color: inherit; }
+
+  /* ═══ TOP BAR ═══ */
+  .top-bar {
+    border-bottom: 1px solid var(--rule);
+    padding: 0.6rem 0;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--grey-mid);
+  }
+
+  .top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .top-bar-links {
+    display: flex;
+    gap: 1.2rem;
+  }
+
+  .top-bar-links a {
+    text-decoration: none;
+    color: var(--grey-mid);
+    transition: color 0.2s;
+  }
+
+  .top-bar-links a:hover { color: var(--ink); }
+
+  /* ═══ HEADER ═══ */
+  header {
+    padding: 3.5rem 0 2rem;
+    text-align: center;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  header h1 {
+    font-family: var(--serif);
+    font-size: 3.4rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+  }
+
+  .tagline {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--grey-mid);
+    margin-top: 0.6rem;
+  }
+
+  nav.main-nav {
+    margin-top: 1.8rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  nav.main-nav a {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    color: var(--grey-mid);
+    transition: color 0.2s;
+  }
+
+  nav.main-nav a:hover { color: var(--ink); }
+
+  /* ═══ HERO / ABOUT ═══ */
+  .hero {
+    padding: 4rem 0 3rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .hero-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .hero-intro {
+    font-family: var(--serif);
+    font-size: 1.65rem;
+    font-weight: 400;
+    line-height: 1.45;
+    color: var(--ink);
+  }
+
+  .hero-intro em {
+    color: var(--green);
+    font-style: italic;
+  }
+
+  .hero-bio {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--grey-mid);
+  }
+
+  .hero-bio p + p { margin-top: 0.8rem; }
+
+  .hero-credentials {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    gap: 2.5rem;
+  }
+
+  .credential {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--grey-light);
+  }
+
+  .credential strong {
+    display: block;
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0;
+    text-transform: none;
+    margin-bottom: 0.15rem;
+  }
+
+  /* ═══ FEATURED IN ═══ */
+  .featured {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--rule);
+    text-align: center;
+  }
+
+  .featured-label {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--grey-light);
+    margin-bottom: 1rem;
+  }
+
+  .featured-logos {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .featured-logos span {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--grey-mid);
+    letter-spacing: 0.3px;
+  }
+
+  .featured-logos span::after {
+    content: '';
+    display: none;
+  }
+
+  /* ═══ SECTION HEADINGS ═══ */
+  .section-heading {
+    padding: 3rem 0 1.5rem;
+  }
+
+  .section-heading h2 {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  .section-number {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  /* ═══ SERVICES ═══ */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--rule);
+  }
+
+  .service-card {
+    padding: 2rem 2rem 2rem 0;
+    border-bottom: 1px solid var(--rule);
+    opacity: 0;
+    animation: fadeUp 0.5s ease-out both;
+  }
+
+  .service-card:nth-child(even) {
+    padding-left: 2rem;
+    border-left: 1px solid var(--rule);
+  }
+
+  .service-card:nth-child(odd) {
+    border-right: 1px solid var(--rule);
+  }
+
+  .service-number {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    letter-spacing: 2px;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+
+  .service-card h3 {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-card p {
+    font-size: 0.88rem;
+    color: var(--grey-mid);
+    line-height: 1.6;
+  }
+
+  .pricing-cta {
+    text-align: center;
+    padding: 2rem 0 3rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .pricing-btn {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: var(--paper);
+    background: var(--green);
+    padding: 0.9rem 2.5rem;
+    transition: background 0.2s;
+  }
+
+  .pricing-btn:hover { background: var(--green-light); }
+
+  /* ═══ WRITING LIST ═══ */
+  .writing-list {
+    border-top: 1px solid var(--rule);
+  }
+
+  .writing-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--rule);
+    text-decoration: none;
+    transition: padding-left 0.25s ease;
+    opacity: 0;
+    animation: fadeUp 0.5s ease-out both;
+  }
+
+  .writing-item:nth-child(1) { animation-delay: 0.1s; }
+  .writing-item:nth-child(2) { animation-delay: 0.18s; }
+  .writing-item:nth-child(3) { animation-delay: 0.26s; }
+  .writing-item:nth-child(4) { animation-delay: 0.34s; }
+  .writing-item:nth-child(5) { animation-delay: 0.42s; }
+
+  .writing-item:hover {
+    padding-left: 0.8rem;
+  }
+
+  .writing-title {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 500;
+    flex: 1;
+  }
+
+  .writing-meta {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    margin-left: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .writing-pub {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--gold);
+  }
+
+  .writing-date {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--grey-light);
+  }
+
+  .writing-arrow {
+    margin-left: 1rem;
+    color: var(--grey-light);
+    font-size: 1.1rem;
+    transition: color 0.2s, transform 0.2s;
+  }
+
+  .writing-item:hover .writing-arrow {
+    color: var(--green);
+    transform: translateX(3px);
+  }
+
+  /* ═══ NEWSLETTER ═══ */
+  .newsletter {
+    background: var(--green);
+    color: var(--paper);
+    padding: 4rem 0;
+    margin-top: 3rem;
+  }
+
+  .newsletter-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .newsletter h2 {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .newsletter p {
+    font-size: 0.92rem;
+    opacity: 0.8;
+    line-height: 1.6;
+  }
+
+  .nl-form {
+    display: flex;
+  }
+
+  .nl-form input[type="email"] {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-right: none;
+    background: rgba(255,255,255,0.07);
+    color: var(--paper);
+    font-family: var(--sans);
+    font-size: 0.88rem;
+    outline: none;
+  }
+
+  .nl-form input::placeholder { color: rgba(255,255,255,0.4); }
+
+  .nl-form button {
+    padding: 0.8rem 1.8rem;
+    background: var(--gold);
+    color: var(--green);
+    border: none;
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .nl-form button:hover { background: var(--gold-light); }
+
+  .nl-note {
+    font-size: 0.72rem;
+    opacity: 0.5;
+    margin-top: 0.6rem;
+  }
+
+  /* ═══ FOOTER ═══ */
+  footer {
+    padding: 3rem 0 2rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+  }
+
+  .footer-heading {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+  }
+
+  .email-link {
+    display: inline-block;
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    color: var(--green);
+    text-decoration: none;
+    border-bottom: 1px solid var(--green);
+    margin-bottom: 0.8rem;
+    transition: opacity 0.2s;
+  }
+
+  .email-link:hover { opacity: 0.7; }
+
+  footer p {
+    font-size: 0.88rem;
+    color: var(--grey-mid);
+    line-height: 1.6;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    justify-content: center;
+  }
+
+  .footer-link {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--grey-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-link:hover { color: var(--ink); }
+
+  .footer-copy {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.72rem;
+    color: var(--grey-light);
+    text-align: center;
+  }
+
+  /* ═══ SLOGAN ═══ */
+  .slogan {
+    font-family: var(--serif);
+    font-size: 0.88rem;
+    font-style: italic;
+    letter-spacing: 0.5px;
+    color: var(--gold);
+    text-align: center;
+    padding: 1.8rem 0 0;
+    animation: fadeUp 0.5s ease-out;
+  }
+
+  /* ═══ ANIMATIONS ═══ */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-intro { animation: fadeUp 0.7s ease-out; }
+  .hero-bio { animation: fadeUp 0.7s ease-out 0.1s both; }
+  .hero-credentials { animation: fadeUp 0.7s ease-out 0.2s both; }
+
+  .service-card:nth-child(1) { animation-delay: 0.2s; }
+  .service-card:nth-child(2) { animation-delay: 0.3s; }
+  .service-card:nth-child(3) { animation-delay: 0.4s; }
+  .service-card:nth-child(4) { animation-delay: 0.5s; }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 680px) {
+    html { font-size: 16px; }
+
+    header h1 { font-size: 2.6rem; }
+
+    nav.main-nav { gap: 1.4rem; flex-wrap: wrap; }
+
+    .hero-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .hero-intro { font-size: 1.45rem; }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .service-card:nth-child(odd) {
+      border-right: none;
+    }
+
+    .service-card:nth-last-child(2) {
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .newsletter-inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .nl-form {
+      flex-direction: column;
+    }
+
+    .nl-form input[type="email"] {
+      border-right: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .writing-meta {
+      flex-direction: column;
+      gap: 0.2rem;
+      align-items: flex-end;
+    }
+
+    .top-bar .container {
+      flex-direction: column;
+      gap: 0.3rem;
+      text-align: center;
+    }
+
+    .hero-credentials {
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ═══ TOP BAR ═══ -->
+  <div class="top-bar">
+    <div class="container">
+      <span>Bitcoin &middot; Bitcoin Treasuries &middot; Monetary Policy</span>
+      <div class="top-bar-links">
+        <a href="https://x.com/medc3005" target="_blank">𝕏</a>
+        <a href="https://www.linkedin.com/in/millercole30/" target="_blank">LinkedIn</a>
+        <a href="https://capitalconsensus.beehiiv.com" target="_blank">Beehiiv</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ HEADER ═══ -->
+  <header>
+    <div class="container">
+      <h1>Miller Cole</h1>
+      <p class="tagline">Writer &middot; Analyst &middot; Bitcoin</p>
+      <nav class="main-nav">
+        <a href="#about">About</a>
+        <a href="#writing">Writing</a>
+        <a href="#services">Services</a>
+        <a href="#newsletter">Newsletter</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ═══ HERO / ABOUT ═══ -->
+  <div class="container">
+    <section class="hero" id="about">
+      <p class="slogan">Empowering Bitcoin-native businesses with the content that drives organic growth.</p>
+      <div class="hero-layout">
+        <div class="hero-intro">
+          Writing about <em>Bitcoin</em>, corporate treasury strategy, and the companies building on a Bitcoin standard.
+        </div>
+        <div class="hero-bio">
+          <p>I write about Bitcoin adoption, corporate treasury strategy, and the emerging ecosystem of Bitcoin-native public companies. Contributing writer at BitcoinTreasuries.NET and financial analyst at Musqet, where I work on Bitcoin payments infrastructure.</p>
+          <p>Published in Business Insider, CoinDesk, and BitcoinTreasuries.NET.</p>
+        </div>
+      </div>
+      <div class="hero-credentials">
+        <div class="credential">
+          <strong>Musqet</strong>
+          Financial Analyst
+        </div>
+        <div class="credential">
+          <strong>Business Insider</strong>
+          Published Writer
+        </div>
+        <div class="credential">
+          <strong>CoinDesk</strong>
+          Published Writer
+        </div>
+        <div class="credential">
+          <strong>BitcoinTreasuries.NET</strong>
+          Contributing Writer
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FEATURED IN ═══ -->
+    <div class="featured">
+      <div class="featured-label">Featured In</div>
+      <div class="featured-logos">
+        <span>Business Insider</span>
+        <span>CoinDesk</span>
+        <span>BitcoinTreasuries.NET</span>
+      </div>
+    </div>
+
+    <!-- ═══ SERVICES ═══ -->
+    <div class="section-heading" id="services">
+      <h2>
+        <span class="section-number">01</span>
+        Services
+      </h2>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-number">01</div>
+        <h3>Ghostwriting</h3>
+        <p>Blog posts, thought leadership, and opinion pieces for Bitcoin companies and fintech founders. Your voice, my pen. Published-quality writing that builds credibility with customers and investors.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">02</div>
+        <h3>Long-form Articles</h3>
+        <p>Deep research pieces, white papers, and reports on Bitcoin payments, monetary policy, and fintech. Authoritative content with real substance for companies that need to stand out.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">03</div>
+        <h3>Content Strategy</h3>
+        <p>Editorial calendars, content audits, and positioning advice for Bitcoin startups. I'll identify the gaps in your content and build a plan that positions your company as a thought leader.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">04</div>
+        <h3>Investor Materials</h3>
+        <p>Deck narratives, investor updates, and fundraising copy for Bitcoin startups. I've worked inside the VC outreach process and understand what investors are looking for.</p>
+      </div>
+    </div>
+
+    <div class="pricing-cta">
+      <a href="#contact" class="pricing-btn">Contact for Pricing →</a>
+    </div>
+
+    <!-- ═══ WRITING ═══ -->
+    <div class="section-heading" id="writing">
+      <h2>
+        <span class="section-number">02</span>
+        Selected Writing
+      </h2>
+    </div>
+
+    <div class="writing-list">
+      <a class="writing-item" href="https://bitcointreasuries.net/news/from-bitcoin-accumulation-to-btc-credit-the-new-hierarchy" target="_blank">
+        <span class="writing-title">From Bitcoin Accumulation to BTC Credit: The New Hierarchy</span>
+        <span class="writing-meta">
+          <span class="writing-pub">BitcoinTreasuries.NET</span>
+          <span class="writing-date">2026</span>
+        </span>
+        <span class="writing-arrow">→</span>
+      </a>
+
+      <a class="writing-item" href="https://capitalconsensus.beehiiv.com/p/the-rial-is-dead-bitcoin-is-the-exit" target="_blank">
+        <span class="writing-title">The Rial Is Dead. Bitcoin Is the Exit.</span>
+        <span class="writing-meta">
+          <span class="writing-pub">Newsletter</span>
+          <span class="writing-date">2026</span>
+        </span>
+        <span class="writing-arrow">→</span>
+      </a>
+
+      <a class="writing-item" href="https://capitalconsensus.beehiiv.com/p/the-quiet-monetary-migration-how-bitcoin-became-a-lifeline-across-africa" target="_blank">
+        <span class="writing-title">The Quiet Monetary Migration: How Bitcoin Became a Lifeline Across Africa</span>
+        <span class="writing-meta">
+          <span class="writing-pub">Newsletter</span>
+          <span class="writing-date">2026</span>
+        </span>
+        <span class="writing-arrow">→</span>
+      </a>
+
+      <a class="writing-item" href="https://capitalconsensus.beehiiv.com/p/the-bank-of-england-has-run-out-of-room-0291e7c280ef5b16" target="_blank">
+        <span class="writing-title">The Bank of England Has Run Out of Room</span>
+        <span class="writing-meta">
+          <span class="writing-pub">Newsletter</span>
+          <span class="writing-date">2026</span>
+        </span>
+        <span class="writing-arrow">→</span>
+      </a>
+
+      <a class="writing-item" href="https://www.coindesk.com/opinion/2025/10/17/your-company-s-balance-sheet-is-doomed-without-bitcoin" target="_blank">
+        <span class="writing-title">Your Company's Balance Sheet Is Doomed Without Bitcoin</span>
+        <span class="writing-meta">
+          <span class="writing-pub">CoinDesk</span>
+          <span class="writing-date">2025</span>
+        </span>
+        <span class="writing-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ═══ NEWSLETTER ═══ -->
+  <section class="newsletter" id="newsletter">
+    <div class="newsletter-inner">
+      <div>
+        <h2>Capital &amp; Consensus</h2>
+        <p>A newsletter on Bitcoin, monetary policy, and political economy. Free, substantive, no fluff.</p>
+      </div>
+      <div>
+        <div class="nl-form">
+          <a href="https://capitalconsensus.beehiiv.com/subscribe" target="_blank" style="text-decoration:none;">
+            <button type="button">Subscribe on Beehiiv →</button>
+          </a>
+        </div>
+        <p class="nl-note">Free. Unsubscribe anytime. No spam.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER / CONTACT ═══ -->
+  <div class="container">
+    <footer id="contact">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-heading">Get in touch</h3>
+          <a class="email-link" href="mailto:miller.cole876@gmail.com">miller.cole876@gmail.com</a>
+          <p>Available for ghostwriting, long-form commissions, and content partnerships. Based in the United Kingdom.</p>
+        </div>
+        <div class="footer-links">
+          <a class="footer-link" href="https://x.com/medc3005" target="_blank">𝕏  Twitter <span class="arrow">→</span></a>
+          <a class="footer-link" href="https://www.linkedin.com/in/millercole30/" target="_blank">LinkedIn <span class="arrow">→</span></a>
+          <a class="footer-link" href="https://capitalconsensus.beehiiv.com" target="_blank">Newsletter <span class="arrow">→</span></a>
+        </div>
+      </div>
+      <p class="footer-copy">&copy; 2026 Miller Cole. All rights reserved.</p>
+    </footer>
+  </div>
+
+</body>
+</html>
