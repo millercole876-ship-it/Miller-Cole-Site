@@ -56,6 +56,8 @@
 
   /* ═══ HEADER ═══ */
   header { padding: 3rem 0 2.2rem; }
+  .header-row { display: flex; align-items: center; gap: 1.4rem; }
+  .profile-photo { width: 84px; height: 84px; object-fit: cover; border: 1px solid var(--brass); flex-shrink: 0; }
   header h1 { font-family: var(--font-display); font-weight: 500; font-size: 2.1rem; letter-spacing: 0.01em; color: var(--ink); }
   header .tagline { font-family: var(--font-mono); font-size: 0.76rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--brass); margin-top: 0.5rem; }
   nav.main-nav { display: flex; gap: 1.8rem; flex-wrap: wrap; margin-top: 1.8rem; border-top: 1px solid var(--line); padding-top: 1.2rem; }
@@ -78,20 +80,29 @@
     margin-top: 2.4rem;
     border-top: 1px solid var(--brass);
     border-bottom: 1px solid var(--brass);
-    padding: 1rem 0;
+    padding: 1.2rem 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem 2.4rem;
+    gap: 1.6rem 2.6rem;
+    align-items: center;
   }
-  .desk-plate-item { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink); }
-  .desk-plate-item strong { color: var(--brass); font-weight: 600; }
+  .desk-plate-item { display: flex; align-items: center; gap: 0.7rem; }
+  .plate-logo { height: 22px; width: auto; flex-shrink: 0; }
+  .plate-logo-wide { height: 15px; }
+  .plate-text { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink); }
+  .plate-text strong { color: var(--brass); font-weight: 600; }
   .hero-location { margin-top: 1.1rem; font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--paper-dim); }
+  .featured-in { margin-top: 1.8rem; display: flex; align-items: center; gap: 1.6rem; flex-wrap: wrap; }
+  .featured-in-label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--paper-dim); }
+  .featured-in-logos { display: flex; align-items: center; gap: 1.8rem; flex-wrap: wrap; }
+  .featured-logo { height: 16px; width: auto; opacity: 0.72; }
 
   .credential-label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--paper-dim); display: block; margin-bottom: 0.3rem; }
   .credential-value { font-family: var(--font-display); font-size: 1.05rem; color: var(--ink); }
 
   /* ═══ ARTICLE ═══ */
   .article-card { border: 1px solid var(--line); padding: 1.8rem; }
+  .article-thumb { width: 100%; height: auto; display: block; margin-bottom: 1.6rem; border: 1px solid var(--line); }
   .article-meta { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--paper-dim); margin-bottom: 0.9rem; }
   .article-title { font-family: var(--font-display); font-size: 1.5rem; font-weight: 500; line-height: 1.35; color: var(--ink); }
   .article-title a { text-decoration: none; border-bottom: 1px solid var(--brass); transition: border-color 0.2s, color 0.2s; }
@@ -138,6 +149,7 @@
   @media (max-width: 640px) {
     header h1 { font-size: 1.7rem; }
     section { padding: 3rem 0; }
+    .profile-photo { width: 64px; height: 64px; }
   }
 </style>
 </head>
@@ -157,8 +169,13 @@
   <!-- ═══ HEADER ═══ -->
   <header>
     <div class="container">
-      <h1>Miller Cole</h1>
-      <p class="tagline">Bitcoin Treasury Analyst &amp; Writer</p>
+      <div class="header-row">
+        <img class="profile-photo" src="images/profile.jpg" alt="Miller Cole" onerror="this.style.display='none'" />
+        <div class="header-text">
+          <h1>Miller Cole</h1>
+          <p class="tagline">Bitcoin Treasury Analyst &amp; Writer</p>
+        </div>
+      </div>
       <nav class="main-nav">
         <a href="#overview">Overview</a>
         <a href="#article">Analysis</a>
@@ -178,10 +195,23 @@
         I write and analyse Bitcoin treasury companies — capital structure, dilution, and mNAV mechanics — for readers who want the mechanics behind the headline, not just the headline. The work sits at the intersection of Bitcoin, corporate capital allocation, and the governance decisions that determine whether shareholder value compounds or erodes.
       </p>
       <div class="desk-plate">
-        <span class="desk-plate-item"><strong>Roxom</strong> — Global Ambassador</span>
-        <span class="desk-plate-item"><strong>Bitcoin Treasuries Network</strong> — Contributing Writer</span>
+        <div class="desk-plate-item">
+          <img class="plate-logo" src="images/roxom-logo.svg" alt="Roxom" />
+          <span class="plate-text"><strong>Roxom</strong> — Global Ambassador</span>
+        </div>
+        <div class="desk-plate-item">
+          <img class="plate-logo plate-logo-wide" src="images/btn-logo.svg" alt="Bitcoin Treasuries Network" />
+          <span class="plate-text"><strong>Bitcoin Treasuries Network</strong> — Contributing Writer</span>
+        </div>
       </div>
       <p class="hero-location">Based in the United Kingdom</p>
+      <div class="featured-in">
+        <span class="featured-in-label">Featured In</span>
+        <div class="featured-in-logos">
+          <img class="featured-logo" src="images/coindesk-logo.svg" alt="CoinDesk" />
+          <img class="featured-logo" src="images/businessinsider-logo.svg" alt="Business Insider" />
+        </div>
+      </div>
     </div>
   </section>
 
@@ -190,11 +220,13 @@
     <div class="container">
       <span class="eyebrow">Analysis</span>
       <div class="article-card">
-        <div class="article-meta">Bitcoin Treasuries Network · [Add publish date]</div>
-        <h3 class="article-title"><a href="#">[Add your article title]</a></h3>
-        <p class="article-dek">[Add a one- or two-sentence summary of the analysis here — what capital structure question or treasury mechanic does the piece address?]</p>
-        <a class="article-link" href="#">Read the full analysis →</a>
+        <img class="article-thumb" src="images/article-thumb.webp" alt="Illustration for Why STRC Is Struggling to Get Over $90 Again" />
+        <div class="article-meta">Bitcoin Treasuries Network · July 2026</div>
+        <h3 class="article-title"><a href="https://bitcointreasuries.net/news/why-strc-is-struggling-to-get-over-dollar90-again" target="_blank" rel="noopener">Why STRC Is Struggling to Get Over $90 Again</a></h3>
+        <p class="article-dek">Strategy's STRC preferred keeps stalling below $90, well short of its $100 par — held there by a crowded options chain and a rising cost to borrow.</p>
+        <a class="article-link" href="https://bitcointreasuries.net/news/why-strc-is-struggling-to-get-over-dollar90-again" target="_blank" rel="noopener">Read the full analysis →</a>
       </div>
+      <a class="article-link" style="display:inline-block;margin-top:1.4rem;" href="https://bitcointreasuries.net/authors/miller-cole" target="_blank" rel="noopener">View all analysis on Bitcoin Treasuries Network →</a>
     </div>
   </section>
 
@@ -236,6 +268,10 @@
           <span class="credential-label">LinkedIn</span>
           <a href="https://www.linkedin.com/in/millercole30/" target="_blank" rel="noopener">millercole30</a>
         </div>
+        <div class="contact-block">
+          <span class="credential-label">Bitcoin Treasuries Network</span>
+          <a href="https://bitcointreasuries.net/authors/miller-cole" target="_blank" rel="noopener">Author page →</a>
+        </div>
       </div>
       <p class="contact-note">Open to interviews, commissions, and commentary on Bitcoin treasury companies and capital structure.</p>
     </div>
@@ -247,7 +283,7 @@
       <span class="eyebrow">Media</span>
       <div class="media-subhead">Live</div>
       <div class="media-item">
-        <span class="media-item-title"><a href="#">[Add link] — European Bitcoin Treasury Companies, with Ben Harvey (Keyrock)</a></span>
+        <span class="media-item-title"><a href="https://x.com/i/spaces/1yKAPPYaYMWxb?s=20" target="_blank" rel="noopener">European Bitcoin Treasury Companies, with Ben Harvey (Keyrock)</a></span>
         <span class="media-item-tag">X Spaces</span>
       </div>
       <p class="media-empty">Recorded video analysis will be added here as it's published.</p>
